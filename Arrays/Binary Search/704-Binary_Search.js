@@ -18,7 +18,7 @@ var search = function(nums, target)
             low = mid + 1;
 
         else
-            high = high -1;
+            high = mid -1;
     }
 
     return -1;
