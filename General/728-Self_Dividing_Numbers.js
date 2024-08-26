@@ -5,11 +5,11 @@
  */
 var checkSelfDividing = function(n)
 {
-    let num = i;
+    let num = n;
     while(num > 0)
     {
         let digit = num % 10;
-        if(digit === 0 || i % digit !== 0)
+        if(digit === 0 || n % digit !== 0)
             return false;
         num = Math.floor(num/10);
     }
