@@ -14,25 +14,18 @@ var minOperations = function(s)
         if (i % 2 === 0) 
         {
             if (s[i] !== '0') 
-                pattern1Changes++; // Index is even, should be '0'
+                pattern1Changes++; // Index is even, should be '0' for pattern 1
+            if (s[i] !== '1') 
+                pattern2Changes++;// Index is even, should be '1' for pattern 2
         } 
         else 
         {
             if (s[i] !== '1') 
-                pattern1Changes++; // Index is odd, should be '1'
+                pattern1Changes++; // Index is odd, should be '1' for pattern 1
+            if (s[i] !== '0') 
+                pattern2Changes++;// Index is odd, should be '0' for pattern 2
         }
 
-        // For Pattern 2 ("101010...")
-        if (i % 2 === 0) 
-        {
-            if (s[i] !== '1') 
-                pattern2Changes++; // Index is even, should be '1'
-        } 
-        else 
-        {
-            if (s[i] !== '0') 
-                pattern2Changes++; // Index is odd, should be '0'
-        }
     }
     return Math.min(pattern1Changes, pattern2Changes);
 };
