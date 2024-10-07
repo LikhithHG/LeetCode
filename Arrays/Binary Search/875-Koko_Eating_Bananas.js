@@ -21,6 +21,7 @@ var minEatingSpeed = function(piles, h)
     while(left < right)
     {
         let mid = Math.floor((left + right) / 2);
+        
         if(canFinish(mid))
             right = mid;
         
