@@ -5,7 +5,7 @@
 var findMaxLength = function(nums) 
 {
     let sumIndex = new Map();
-    sumIndex.set(0, -1);
+    sumIndex.set(0, -1);//sum is 0 at index -1
     let maxLen = 0;
     let runningSum = 0;
 
