@@ -1,4 +1,4 @@
-/*
+'''
 A pilot was asked to drop food packets in a terrain. He must fly over the entire terrain only once but cover a maximum number of drop points. The points are given as inputs in the form of integer coordinates in a two Mimensional field.
 The flight path can be horizontal or vertical, but not a mix of the two or diagonal.
 Write an algorithm to find the maximum number of drop points that can be covered by flying over the terrain once.
@@ -22,7 +22,8 @@ Input:
 22658
 Output:
 3
-*/
+'''
+
 def max_drop_points_covered(n, x_coords, m, y_coords):
     # Dictionaries to count occurrences of each x and y coordinate
     x_count = {}
