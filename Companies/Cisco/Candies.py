@@ -17,7 +17,11 @@ Input:
 Output:
 114
 
-'''def max_chocolates(num_jars, chocolates):
+'''
+
+#Same as house Robber
+
+def max_chocolates(num_jars, chocolates):
     if num_jars == 1:
         return chocolates[0]
     
