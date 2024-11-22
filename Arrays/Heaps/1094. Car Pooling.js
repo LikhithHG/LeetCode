@@ -11,7 +11,7 @@ var carPooling = function(trips, capacity)
         events.push([from, numPassengers]);
         events.push([to, -numPassengers]);
     }
-    //Sort based on location first and if they have same location then deop off is considered first
+    //Sort based on location first and if they have same location then drop off is considered first
     events.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
 
     let currentPassangers = 0;
