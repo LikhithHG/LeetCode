@@ -10,35 +10,38 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) 
+var zigzagLevelOrder = function(root) 
 {
     if(!root)
         return [];
 
     let result = [];
     let queue = [root];
+    let isZigZag = false;
 
     while(queue.length > 0)
     {
-        //Calculate the size of current level
-        let levelSize = queue.length;
-        //Stores elements of the current level
+        let levelLength = queue.length;
         const currentLevel = [];
 
-        for(let i = 0; i < levelSize; i++)
+        for(let i = 0; i < levelLength; i++)
         {
-            //Remove the first element of the queue
+            //Remove the first element
             const node = queue.shift();
-            //Push the value to current level
+            //Add the value to the current level
             currentLevel.push(node.val);
-            //Push the left and right nodes to the queue
+
             if(node.left)
                 queue.push(node.left);
             if(node.right)
                 queue.push(node.right);
+             
         }
-        //Push current level result to result
+        if(isZigZag)
+            currentLevel.reverse();
+        //Push currentLevel to result
         result.push(currentLevel);
-    }
+        isZigZag = !isZigZag;
+    }    
     return result;
 };
