@@ -33,4 +33,35 @@ var rightSideView = function(root)
 };
 /*
 
+BFS
+
+var rightSideView = function(root) 
+{
+    if(!root)
+        return [];
+    
+    let queue = [root];
+    let result = [];
+
+    while(queue.length > 0)
+    {
+        const levelSize = queue.length;
+        let rightMost;
+
+        for(let i = 0; i < levelSize; i++)
+        {
+            const node = queue.shift();
+            if(node)
+                rightMost = node.val;
+
+            if(node.left)
+                queue.push(node.left);
+            if(node.right)
+                queue.push(node.right);
+            
+        }
+        result.push(rightMost);
+    }
+    return result;
+};
 */
