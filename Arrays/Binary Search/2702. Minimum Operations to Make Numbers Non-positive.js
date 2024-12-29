@@ -21,7 +21,7 @@ var minOperations = function(nums, x, y)
         for (let i = 0; i < nums.length; i += 1) 
         {
             if (nums[i] > mid * y) 
-            remain -= Math.ceil((nums[i] - mid * y) / diff);
+                remain -= Math.ceil((nums[i] - mid * y) / diff);
 
             if (remain < 0) 
                 break;
