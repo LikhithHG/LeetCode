@@ -14,6 +14,50 @@
  */
 var connect = function(root) 
 {
+    function processChild(childNode, prev, leftMost)
+    {
+        if(childNode)
+        {
+            if(prev)
+                prev.next = childNode;
+            else
+                leftMost = childNode;
+            
+            prev = childNode;
+        }
+        return [prev, leftMost];
+    }
+
+    if(root === null)
+        return root;
+    
+    let leftMost = root;//For each level
+    let prev = null;//It is a pointer to the leading node of the next level
+    let curr = null;//Traverse all nodes on the current level
+
+    while(leftMost)
+    {
+        prev = null;
+        curr = leftMost;
+        leftMost = null;
+
+        while(curr)
+        {
+            let res = processChild(curr.left, prev, leftMost);
+            prev = res[0];
+            leftMost = res[1];
+
+            res = processChild(curr.right, prev, leftMost);
+            prev = res[0];
+            leftMost = res[1];
+
+            curr = curr.next;
+        }
+    }
+    return root;
+};
+
+/*
     //BFS
     if(root === null)
         return root;
@@ -33,5 +77,5 @@ var connect = function(root)
                 queue.push(node.right);
         }
     }
-    return root;    
-};
+    return root;
+*/
