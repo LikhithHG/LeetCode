@@ -23,3 +23,33 @@ var flatten = function(root)
 {
     flatternTree(root);
 };
+
+
+/*
+//Morris Traversal
+    if(!root)
+        return;
+    
+    let node = root;
+    while(node)
+    {
+        //If node has left child
+        if(node.left)
+        {
+            //Find the rightmost node in the left subtree that does not have right child
+            let rightMost = node.left;
+            while(rightMost.right)
+                rightMost = rightMost.right;
+            
+            //Connect the original nodes right child as the right child of the rightMost node
+            rightMost.right = node.right;
+
+            //Make this node left child as the right child of the node
+            node.right = node.left;
+            node.left = null;                
+        }
+
+        //Move to the right side of the tree
+        node = node.right;
+    }
+*/
