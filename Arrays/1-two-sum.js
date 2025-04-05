@@ -5,19 +5,15 @@
  */
 var twoSum = function(nums, target) 
 {
-    let sorted = nums.map((num, index) => ({num, index})).sort((a, b) => a.num - b.num);
-    let left = 0;
-    let right = sorted.length - 1;
-
-    while(left < right)
+    
+    let hashMap = new Map();
+    
+    for(let i = 0; i < nums.length; i++)
     {
-        let sum = sorted[left].num + sorted[right].num;
-        if(sum === target)
-            return[sorted[left].index, sorted[right].index];
-        else if(sum < target)
-            left += 1;
-        else
-            right -= 1;
+        let complement = target - nums[i];
+        if(hashMap.has(complement))
+            return [i, hashMap.get(complement)];
+        hashMap.set(nums[i], i);
     }
     return [];
 };
@@ -33,5 +29,24 @@ var twoSum = function(nums, target) {
         }
     }
     return []
+};
+
+var twoSum = function(nums, target) 
+{
+    let sorted = nums.map((num, index) => ({num, index})).sort((a, b) => a.num - b.num);
+    let left = 0;
+    let right = sorted.length - 1;
+
+    while(left < right)
+    {
+        let sum = sorted[left].num + sorted[right].num;
+        if(sum === target)
+            return[sorted[left].index, sorted[right].index];
+        else if(sum < target)
+            left += 1;
+        else
+            right -= 1;
+    }
+    return [];
 };
 */
