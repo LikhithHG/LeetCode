@@ -7,6 +7,29 @@ var pivotInteger = function(n)
     let left = 1;
     let right = n;
 
+    let totalSum = (n * (n + 1)) / 2;
+
+    while(left < right)
+    {
+        let mid = Math.floor((left + right) / 2);
+
+        if(mid * mid < totalSum)
+            left = mid + 1;
+        
+        else
+            right = mid;
+    }
+    if(left * left === totalSum)
+        return left;
+    else
+        return -1;
+};
+
+/*
+    //Using Prefix Sum
+    let left = 1;
+    let right = n;
+
     let sumLeft = left;
     let sumRight = right;
 
@@ -30,4 +53,4 @@ var pivotInteger = function(n)
             return left + 1;
     }
     return -1;
-};
+*/
