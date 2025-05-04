@@ -4,6 +4,17 @@
  */
 var maxScoreSightseeingPair = function(values) 
 {
+    let maxLeft = values[0];
+    let maxScore = 0;
+
+    for(let i = 1; i < values.length; i++)
+    {
+        maxScore = Math.max(maxScore,  maxLeft + values[i] - i);
+        maxLeft = Math.max(maxLeft, values[i] + i);
+    }
+    return maxScore;
+};
+/*
     let n = values.length;
 
     let maxLeftScore = new Array(n);
@@ -20,4 +31,4 @@ var maxScoreSightseeingPair = function(values)
         maxLeftScore[i] = Math.max(maxLeftScore[i - 1], currentLeftScore);
     }
     return maxScore;
-};
+*/
