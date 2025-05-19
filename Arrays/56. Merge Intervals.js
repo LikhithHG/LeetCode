@@ -2,6 +2,7 @@
  * @param {number[][]} intervals
  * @return {number[][]}
  */
+//This merges the intervals 
 var merge = function(intervals) 
 {
     if(intervals.length === 0)
