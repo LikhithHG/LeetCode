@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var wiggleMaxLength = function(nums) 
+{
+    if(nums.length < 2)
+        return nums.length;
+
+    let prevDiff = nums[1] - nums[0];
+    let count = prevDiff != 0 ? 2 : 1;
+
+    for(let i = 2; i < nums.length; i++)
+    {
+        let diff = nums[i] - nums[i - 1];
+        if((diff > 0 && prevDiff <= 0) || (diff < 0 && prevDiff >= 0))
+        {
+            count++;
+            prevDiff = diff;
+        }
+    }    
+    return count;
+};
