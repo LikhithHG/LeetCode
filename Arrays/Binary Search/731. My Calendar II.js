@@ -28,10 +28,12 @@ MyCalendarTwo.prototype.book = function(startTime, endTime)
         {
             // Rollback
             this.bookingCount.set(startTime, this.bookingCount.get(startTime) - 1);
-            if (this.bookingCount.get(startTime) === 0) this.bookingCount.delete(startTime);
+            if (this.bookingCount.get(startTime) === 0) 
+                this.bookingCount.delete(startTime);
 
             this.bookingCount.set(endTime, this.bookingCount.get(endTime) + 1);
-            if (this.bookingCount.get(endTime) === 0) this.bookingCount.delete(endTime);
+            if (this.bookingCount.get(endTime) === 0) 
+                this.bookingCount.delete(endTime);
 
             return false;
         }
