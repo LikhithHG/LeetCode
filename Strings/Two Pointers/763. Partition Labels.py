@@ -18,8 +18,8 @@ class Solution:
                     answer.append(right - left + 1)
                     left = right + 1
                     right = right + 1
-                    track_set = set()
-                    count_of_seen = 0
+                    track = set()
+                    count_seen = 0
                     continue
             
             right += 1
