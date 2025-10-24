@@ -20,3 +20,4 @@ class Solution:
                 current = current.next
         
         return answer
+    
