@@ -1,0 +1,32 @@
+class Solution:
+    def minCharacters(self, a: str, b: str) -> int:
+        n, m = len(a), len(b)
+        self.mp1, self.mp2 = Counter(a), Counter(b)
+
+        res = n-max(self.mp1.values()) + m-max(self.mp2.values())
+
+        for i in range(ord('a'), ord('z')):
+            x = chr(i)
+            res = min(res, self.checkMinOp(x, a, b))
+
+        return res
+    
+    def checkMinOp(self, x, a, b):
+        n, m = len(a), len(b)
+        res1, res2 = 0, 0
+
+        for key, val in self.mp1.items():
+            if key > x:
+                res1 += val
+
+            else:
+                res2 += val
+
+        for key, val in self.mp2.items():
+            if key <= x:
+                res1 += val
+
+            else:
+                res2 += val
+                
+        return min(res1, res2)
